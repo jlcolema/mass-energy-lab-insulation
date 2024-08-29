@@ -1,0 +1,175 @@
+
+/*-------------------------------------------
+	Header
+-------------------------------------------*/
+
+
+#header {
+
+	margin: 0 0 35px 0;
+	padding: 20px 0 30px 0;
+	background: rgba($white, 0.65);
+	border-bottom: 1px solid rgb(230, 230, 230);
+
+	.wrap {
+
+		@media screen and (min-width: 700px) {
+
+			position: relative;
+			padding-top: 170px;
+
+		}
+
+	}
+
+}
+
+		#logo {
+
+			a {
+
+				display: block;
+				width: 266px;
+				height: 131px;
+				margin: 0 auto 20px auto;
+				background: url(/a/img/logo.png);
+				@include hide-text;
+
+				@media screen and (min-width: 700px) {
+
+					position: absolute;
+					left: 18px;
+					top: 10px;
+					z-index: 5;
+
+				}
+
+				&:hover {}
+
+			}
+
+			span {
+
+				display: block;
+				margin: 0 0 25px 0;
+				color: rgb(152, 149, 148);
+				@include font-size(18);
+				font-family: "proxima-nova-alt-condensed";
+				font-weight: 400;
+				font-style: italic;
+				text-align: center;
+				text-transform: uppercase;
+
+				@media screen and (min-width: 700px) {
+
+					margin: 0 0 5px 0;
+					@include font-size(24);
+
+				}
+
+			}
+
+		}
+
+		#nav {
+
+			@media screen and (min-width: 700px) {
+
+				position: absolute;
+				right: 30px;
+				top: 94px;
+				z-index: 5;
+
+			}
+
+			ul {
+
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				border-top: 1px solid rgb(194, 194, 194);
+				@include group;
+
+				@media screen and (min-width: 700px) {
+
+					border: none;
+
+				}
+
+			}
+
+				li {
+
+					float: left;
+					width: 50%;
+					@include font-size(16);
+					line-height: (16/16) + em;
+					text-transform: uppercase;
+					text-align: center;
+					border-bottom: 1px solid rgb(194, 194, 194);
+
+					@media screen and (min-width: 700px) {
+
+						width: auto;
+						margin: 0 0 0 10px;
+						border: none;
+
+					}
+
+					&:nth-child(odd) {
+
+						border-right: 1px dotted rgb(194, 194, 194);
+
+						@media screen and (min-width: 700px) {
+
+							border: none;
+
+						}
+
+					}
+
+				}
+
+					a {
+
+						display: block;
+						padding: 10px 10px 11px 10px;
+						color: rgb(40, 130, 191);
+
+						@media screen and (min-width: 700px) {
+
+							@include border-radius(5px);
+
+						}
+
+						@media screen and (min-width: 760px) {
+
+							padding: 10px 15px 11px 15px;
+
+						}
+
+						&:hover {
+
+							text-decoration: none;
+							background: rgba(40, 130, 191, 0.15);
+
+						}
+
+					}
+
+				/* Active Section */
+
+				.active {
+
+					a {
+
+						color: $white;
+						background: rgb(40, 130, 191);
+
+						&:hover {};
+
+					}
+
+				}
+
+		}

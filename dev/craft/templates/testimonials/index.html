@@ -1,0 +1,46 @@
+{#
+ # Testimonals index template
+ # -------------------
+ #
+ # This template is loaded whenever http://example.com/news is
+ # requested, because it is located at news/index.html in your
+ # craft/templates/ folder.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+{% set title = "Blog" %}
+
+{% block content %}
+
+	<h1>Testimonials</h1>
+
+	<div class="testimonials-listing">
+
+		<div class="content">
+
+			{% for entry in craft.entries.section('testimonials').find() %}
+
+				<blockquote>
+
+					{{ entry.testimonialComments }}
+
+					<cite>
+
+						<span class="name">{{ entry.title }}</span>
+
+						<div class="location">{{ entry.city }}, {{ entry.state }}</div>
+
+					</cite>
+
+				</blockquote>
+
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+{% endblock %}

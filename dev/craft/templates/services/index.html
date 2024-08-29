@@ -1,0 +1,56 @@
+{#
+ # Services index template
+ # -------------------
+ #
+ # This template is loaded whenever http://example.com/news is
+ # requested, because it is located at news/index.html in your
+ # craft/templates/ folder.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+{% set title = "Blog" %}
+
+{% block content %}
+
+	<h1>Services</h1>
+
+	<div class="services-listing">
+
+		<div class="content">
+
+			<ul>
+
+				{% for entry in craft.entries.section('services').find() %}
+
+				<li>
+
+					<a href="{{ entry.url }}">
+
+						{% for image in entry.serviceThumbnail %}
+
+							<img src="{{ image.getURL() }}" alt="{{ entry.title }}" />
+
+						{% else %}
+
+							<img src="http://placeimg.com/400/300/any" alt="{{ entry.title }}" />
+
+						{% endfor %}
+
+						<h3>{{ entry.title }}</h3>
+
+					</a>
+
+				</li>
+
+				{% endfor %}
+
+			</ul>
+
+		</div>
+
+	</div>
+
+{% endblock %}

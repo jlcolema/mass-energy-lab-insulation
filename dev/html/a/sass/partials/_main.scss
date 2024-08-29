@@ -1,0 +1,350 @@
+
+/*-------------------------------------------
+	Main
+-------------------------------------------*/
+
+
+#main {}
+
+	h1 {
+
+		#home & {
+
+			display: none;
+
+		}
+
+	}
+
+	/* Featured Testimonial */
+
+	.featured-testimonial {
+
+		margin: 0 0 30px 0;
+
+		.title {
+
+			margin-bottom: (16/32) + em;
+			@include font-size(32);
+			line-height: (42/32) + em;
+			text-transform: uppercase;
+
+		}
+
+		blockquote {}
+
+			p {
+
+				&:last-of-type {}
+
+			}
+
+		.more {
+
+			a {
+
+				&:hover {}
+
+			}
+
+		}
+
+	}
+
+	/* Services Listing */
+
+	.services-listing {
+
+		header {
+
+			margin: 50px 0 40px 0;
+			text-align: center;
+
+		}
+
+			h2 {
+
+				display: inline-block;
+				margin: 0;
+				padding: 5px 50px 3px 50px;
+				text-transform: uppercase;
+				border-top: 1px solid rgb(194, 194, 194);
+				border-bottom: 1px solid rgb(194, 194, 194);
+
+			}
+
+		.content {}
+
+			ul {
+
+				@media screen and (min-width: 460px) {
+
+					text-align: justify;
+					@include placeholder;
+
+				}
+
+			}
+
+				li {
+
+					margin: 0 0 30px 0;
+
+					@media screen and (min-width: 460px) {
+
+						display: inline-block;
+						width: 47%;
+						text-align: left;
+						vertical-align: top;
+
+					}
+
+					@media screen and (min-width: 800px) {
+
+						width: 31%;
+
+					}
+
+				}
+
+					a {
+
+						color: rgb(152, 149, 148);
+
+						&:hover {
+
+							text-decoration: none;
+							color: rgb(40, 130, 191);
+
+							img {
+
+								outline: 3px solid rgb(46, 167, 222);
+
+							}
+
+						}
+
+					}
+
+						img {
+
+							margin: 0 0 15px 0;
+
+						}
+
+						h3 {
+
+							margin: 0;
+							@include font-size(14);
+							line-height: (20/14) + em;
+							@include proxima-nova-regular;
+							text-transform: uppercase;
+
+						}
+
+	}
+
+	/* About Us */
+
+	.about-us {
+
+		margin: 0 0 -30px 0;
+
+		@media screen and (min-width: 460px) {
+
+			margin: -60px 0 -30px 0;
+
+		}
+
+		header {
+
+			margin: 50px 0 40px 0;
+			text-align: center;
+
+		}
+
+			h2 {
+
+				display: inline-block;
+				margin: 0;
+				padding: 5px 50px 3px 50px;
+				text-transform: uppercase;
+				border-top: 1px solid rgb(194, 194, 194);
+				border-bottom: 1px solid rgb(194, 194, 194);
+
+			}
+
+		.content {
+
+			@media screen and (min-width: 460px) {
+
+				text-align: justify;
+				@include placeholder;
+
+			}
+
+			div {
+
+				margin: 0 0 30px 0;
+
+				@media screen and (min-width: 460px) {
+
+					display: inline-block;
+					width: 47%;
+					text-align: left;
+					vertical-align: top;
+
+				}
+
+				@media screen and (min-width: 800px) {
+
+					width: 31%;
+
+				}
+
+			}
+
+		}
+
+				a {
+
+					color: rgb(152, 149, 148);
+
+					&:hover {
+
+						text-decoration: none;
+						color: rgb(40, 130, 191);
+
+						img {
+
+							outline: 3px solid rgb(46, 167, 222);
+
+						}
+
+					}
+
+				}
+
+					img {
+
+						margin: 0 0 15px 0;
+
+					}
+
+					h3 {
+
+						margin: 0;
+						@include font-size(14);
+						line-height: (20/14) + em;
+						@include proxima-nova-regular;
+						text-transform: uppercase;
+
+					}
+
+	}
+
+	/* Why We're Different */
+
+	.why-were-different {
+
+		header {
+
+			margin: 50px 0 40px 0;
+			text-align: center;
+
+		}
+
+			h2 {
+
+				display: inline-block;
+				margin: 0;
+				padding: 5px 50px 3px 50px;
+				text-transform: uppercase;
+				border-top: 1px solid rgb(194, 194, 194);
+				border-bottom: 1px solid rgb(194, 194, 194);
+
+			}
+
+		.content {}
+
+			ul {
+
+				margin: 0;
+				padding: 0;
+				list-style: none;
+
+			}
+
+				li {
+
+					margin: 0 0 30px 0;
+
+				}
+
+					h3 {}
+
+	}
+
+	/* Testimonials Listing */
+
+	.testimonials-listing {
+
+		header {
+
+			margin: 50px 0 40px 0;
+			text-align: center;
+
+		}
+
+			h2 {
+
+				display: inline-block;
+				margin: 0;
+				padding: 5px 50px 3px 50px;
+				text-transform: uppercase;
+				border-top: 1px solid rgb(194, 194, 194);
+				border-bottom: 1px solid rgb(194, 194, 194);
+
+			}
+
+		.content {}
+
+			blockquote {
+
+				margin: 0 0 30px 0;
+
+			}
+
+				cite {}
+
+					.name {
+
+						@include proxima-nova-bold;
+
+					}
+
+					.location {}
+
+	}
+
+	/* Form */
+
+	.form {
+
+		form {}
+
+			h2 {
+
+				margin: 0 0 24px 0;
+
+			}
+
+			ol {}
+
+				li {
+
+					margin: 0 0 24px 0;
+
+				}
+
+	}

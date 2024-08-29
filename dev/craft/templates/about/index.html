@@ -1,0 +1,87 @@
+{#
+ # About index template
+ # -------------------
+ #
+ # This template is loaded whenever http://example.com/news is
+ # requested, because it is located at news/index.html in your
+ # craft/templates/ folder.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+	<h1>{{ entry.title }}</h1>
+
+	{{ entry.body }}
+
+	<section class="why-were-different">
+
+		<header>
+
+			<h2>Why We&rsquo;re Different</h2>
+
+		</header>
+
+		<div class="content">
+
+			<ul>
+
+				{% for entry in craft.entries.section('whys').find() %}
+
+				<li>
+
+					<h3>{{ entry.title }}</h3>
+
+					<div>
+
+						{{ entry.body }}
+
+					</div>
+
+				</li>
+
+				{% endfor %}
+
+			</ul>
+
+		</div>
+
+	</section>
+
+	<section class="testimonials-listing">
+
+		<header>
+
+			<h2>Testimonials</h2>
+
+		</header>
+
+		<div class="content">
+
+			{% for testimonials in entry.featuredTestimonials %}
+
+				<blockquote>
+
+					{{ testimonials.testimonialComments }}
+
+					<cite>
+
+						<span class="name">{{ testimonials.title }}</span>
+
+						<div class="location">{{ testimonials.city }}, {{ testimonials.state }}</div>
+
+					</cite>
+
+				</blockquote>
+
+			{% endfor %}
+
+		</div>
+
+	</section>
+
+{% endblock %}

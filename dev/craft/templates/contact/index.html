@@ -1,0 +1,107 @@
+{#
+ # Contact index template
+ # -------------------
+ #
+ # This template is loaded whenever http://example.com/news is
+ # requested, because it is located at news/index.html in your
+ # craft/templates/ folder.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+	<h1>{{ entry.title }}</h1>
+
+	{{ entry.body }}
+
+	{% macro errorList(errors) %}
+
+		{% if errors %}
+
+			<div class="errors">
+
+				{% for error in errors %}
+
+					<div class="error">{{ error }}</div>
+
+				{% endfor %}
+
+			</div>
+
+		{% endif %}
+
+	{% endmacro %}
+
+	{% from _self import errorList %}
+
+	<div class="form">
+
+		<form method="post" action="" accept-charset="UTF-8">
+
+			<input type="hidden" name="action" value="contactForm/sendMessage">
+
+			<input type="hidden" name="redirect" value="thanks">
+
+			<h2>Request more info or schedule a free assessment</h2>
+
+			<ol>
+
+				<li>
+
+					<label for="fromName">Full Name</label>
+
+					<input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+
+					{% if message is defined %}{{ errorList(message.getErrors('fromName')) }}{% endif %}
+
+				</li>
+
+				<li>
+
+					<label for="fromEmail">Email Address <span class="required">*</span></label>
+
+					<input id="fromEmail" type="text" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
+
+					{% if message is defined %}{{ errorList(message.getErrors('fromEmail')) }}{% endif %}
+
+				</li>
+
+				<li>
+
+					<label for="phone">Phone Number</label>
+
+					<input id="phone" type="text" name="message[Phone]" value="" />
+
+				</li>
+
+				<li>
+
+					<label for="company">Company Name</label>
+
+					<input id="company" type="text" name="message[Company]" value="" />
+
+				</li>
+
+				<li>
+
+					<label for="message">Comments <span class="required">*</span></label>
+
+					<textarea rows="10" cols="40" id="message" name="message[body]">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+
+					{% if message is defined %}{{ errorList(message.getErrors('message')) }}{% endif %}
+
+				</li>
+
+			</ol>
+
+			<input id="submit" type="submit" value="Send" />
+
+		</form>
+
+	</div>
+
+{% endblock %}

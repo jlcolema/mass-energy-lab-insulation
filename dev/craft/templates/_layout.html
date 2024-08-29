@@ -1,0 +1,325 @@
+<!doctype html>
+
+<!--[if lt IE 7]>
+
+	<html lang="en-US" class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7">
+
+<![endif]-->
+
+<!--[if IE 7]>
+
+	<html lang="en-US" class="no-js lt-ie10 lt-ie9 lt-ie8">
+
+<![endif]-->
+
+<!--[if IE 8]>
+
+	<html lang="en-US" class="no-js lt-ie10 lt-ie9">
+
+<![endif]-->
+
+<!--[if IE 9]>
+
+	<html lang="en-US" class="no-js lt-ie10">
+
+<![endif]-->
+
+<!--[if gt IE 9]><!-->
+
+	<html lang="en-US" class="no-js">
+
+<!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<!--[if IE]>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+
+	<![endif]-->
+
+	<title>{% if entry.title is defined %}{{ entry.title }} | {% endif %}{{ siteName }}</title>
+
+	<meta name="description" content="{{ entry.seoDescription }}" />
+
+	<meta name="keywords" content="{{ entry.seoKeywords }}" />
+
+	<meta name="author" content="{{ siteName }}" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+	{% if googleTools.googleSiteVerification %}
+
+	<meta name="google-site-verification" content="{{ googleTools.googleSiteVerification }}" />
+
+	{% endif %}
+
+	<link rel="shortcut icon" href="/a/img/favicon.png" />
+
+	<link rel="apple-touch-icon" href="/a/img/touch-icon.png" />
+
+	<link type="text/css" href="/a/css/screen.css" rel="stylesheet" media="screen, projection" />
+
+	<link type="text/css" href="/a/css/print.css" rel="stylesheet" media="print" />
+
+	<script type="text/javascript" src="//use.typekit.net/tuh4lwz.js"></script>
+
+	<script type="text/javascript">
+
+		try{Typekit.load();}catch(e){}
+
+	</script>
+
+	<script src="/a/js/modernizr.js"></script>
+
+</head>
+
+<body{% if craft.request.firstSegment == '' %} id="home"{% elseif craft.request.firstSegment == 'about' %} id="about"{% elseif craft.request.firstSegment == 'blog' %} id="blog"{% elseif craft.request.firstSegment == 'services' %} id="services"{% else %} id="contact"{% endif %}>
+
+	<header id="header" role="banner">
+
+		<div class="wrap">
+
+			<div id="logo">
+
+				<a href="{{ siteUrl }}">{{ siteName }}</a>
+
+				<span>{{ contactInformation.tagline }}</span>
+
+			</div>
+
+			<div id="nav" role="navigation">
+
+				<ul>
+
+					<li class="about{%if craft.request.firstSegment == 'about' %} active{% endif %}">
+
+						<a href="/about/">About</a>
+
+					</li>
+
+					<li class="blog{%if craft.request.firstSegment == 'blog' %} active{% endif %}">
+
+						<a href="/blog/">Blog</a>
+
+					</li>
+
+					<li class="services{%if craft.request.firstSegment == 'services' %} active{% endif %}">
+
+						<a href="/services/">Services</a>
+
+					</li>
+
+					<li class="contact{%if craft.request.firstSegment == 'contact' %} active{% endif %}">
+
+						<a href="/contact/">Contact</a>
+
+					</li>
+
+				</ul>
+
+			</div>
+
+		</div>
+
+	</header>
+
+	{% if entry.hero | length %}
+
+	<div id="hero">
+
+		<div class="wrap">
+
+			{% for image in entry.hero %}
+
+			<div class="hero">
+
+				<img src="{{ image.getURL() }}" />
+
+			</div>
+
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+	{% endif %}
+
+	<div id="content">
+
+		<div class="wrap">
+
+			<div id="main" role="main">
+
+				{% block content %}
+
+					<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+
+					<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+
+				{% endblock %}
+
+			</div>
+
+			<div id="secondary" role="complementary">
+
+				<!-- Content for sidebar -->
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<footer id="footer" role="conteninfo">
+
+		<div class="wrap">
+
+			<div class="secondary-nav">
+
+				<div>
+
+					<h3>The Difference</h3>
+
+					<ul>
+
+						<li>
+
+							<a href="/about/">Why Mass Energy Lab</a>
+
+						</li>
+
+						<li>
+
+							<a href="/testimonials/">Testimonials</a>
+
+						</li>
+
+						<!-- <li>
+
+							<a href="#">Featured Projects</a>
+
+						</li> -->
+
+					</ul>
+
+				</div>
+
+				<div>
+
+					<h3>Services</h3>
+
+					<ul>
+
+						{% for entry in craft.entries.section('services').find() %}
+
+						<li>
+
+							<a href="{{ entry.url }}">{{ entry.title }}</a>
+
+						</li>
+
+						{% endfor %}
+
+					</ul>
+
+				</div>
+
+				<div>
+
+					<h3>Browse</h3>
+
+					<ul>
+
+						<li>
+
+							<a href="/about/">About</a>
+
+						</li>
+
+						<li>
+
+							<a href="/blog/">Blog</a>
+
+						</li>
+
+						<li>
+
+							<a href="/services/">Services</a>
+
+						</li>
+
+						<li>
+
+							<a href="/contact/">Contact</a>
+
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div class="logo">
+
+				<a href="{{ siteUrl }}">
+
+					Mass Energy Lab Insulation
+
+				</a>
+
+			</div>
+
+			<p id="copyright">Copyright {{ now.year }} {{ siteName }}. All rights reserved.</p>
+
+		</div>
+
+	</footer>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+	<script>
+
+		window.jQuery || document.write("<script src='/a/js/jquery.js'>\x3C/script>")
+
+	</script>
+
+	<!--[if lt IE 9]>
+
+		<script src="/a/js/selectivizr.js"></script>
+
+	<![endif]-->
+
+	<script src="/a/js/matchmedia.js"></script>
+
+	<script src="/a/js/picturefill.js"></script>
+
+	<script src="/a/js/functions.js"></script>
+
+	{% if googleTools.googleAnalytics %}
+
+	<script>
+
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', '{{ googleTools.googleAnalytics }}', 'massenergylabinsulation.com');
+
+		ga('send', 'pageview');
+
+	</script>
+
+	{% endif %}
+
+</body>
+
+</html>

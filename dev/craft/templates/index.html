@@ -1,0 +1,166 @@
+{#
+ # Homepage template
+ # ---------------
+ #
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Homepage (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Homepage entry.
+ #
+ # It's worth noting that even if you didn't have a Homepage Single section,
+ # as long as this template remains at craft/templates/index.html, it
+ # would still be the one to get loaded when accessing http://yoursite.com/,
+ # albeit without an ‘entry’ variable already set for you.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+	<h1>{{ entry.title }}</h1>
+
+	{{ entry.body }}
+
+	{% for testimonials in entry.featuredTestimonial %}
+
+		<div class="featured-testimonial">
+
+			<h2 class="title">Mass Energy Lab Insulation Clients Have to Say</h2>
+
+			<blockquote>
+
+				{{ testimonials.testimonialComments }}
+
+			</blockquote>
+
+			<div class="more">
+
+				<a href="/testimonials/">Read More</a>
+
+			</div>
+
+		</div>
+
+	{% endfor %}
+
+	<section class="services-listing">
+
+		<header>
+
+			<h2>Our Services</h2>
+
+		</header>
+
+		<div class="content">
+
+			<ul>
+
+				{% for entry in craft.entries.section('services').find() %}
+
+				<li>
+
+					<a href="{{ entry.url }}">
+
+						{% for image in entry.serviceThumbnail %}
+
+							<img src="{{ image.getURL() }}" alt="{{ entry.title }}" />
+
+						{% else %}
+
+							<img src="http://placeimg.com/400/300/any" alt="{{ entry.title }}" />
+
+						{% endfor %}
+
+						<h3>{{ entry.title }}</h3>
+
+					</a>
+
+				</li>
+
+				{% endfor %}
+
+			</ul>
+
+		</div>
+
+	</section>
+
+	<section class="about-us">
+
+		<header>
+
+			<h2>About Us</h2>
+
+		</header>
+
+		<div class="content">
+
+			<div>
+
+				<a href="/about/">
+
+					{% for image in sectionThumbnails.thumbnailAbout %}
+
+						<img src="{{ image.url }}" alt="" />
+
+					{% else %}
+
+						<img src="/a/img/thumbnail-placeholder.svg" alt="{{ entry.title }}" />
+
+					{% endfor %}
+
+					<h3>Why We&rsquo;re Different</h3>
+
+				</a>
+
+			</div>
+
+			<div>
+
+				<a href="/testimonials/">
+
+					{% for image in sectionThumbnails.thumbnailTestimonials %}
+
+						<img src="{{ image.url }}" alt="" />
+
+					{% else %}
+
+						<img src="/a/img/thumbnail-placeholder.svg" alt="{{ entry.title }}" />
+
+					{% endfor %}
+
+					<h3>Client Testimonials</h3>
+
+				</a>
+
+			</div>
+
+			<div>
+
+				<a href="/blog/">
+
+					{% for image in sectionThumbnails.thumbnailBlog %}
+
+						<img src="{{ image.url }}" alt="" />
+
+					{% else %}
+
+						<img src="/a/img/thumbnail-placeholder.svg" alt="{{ entry.title }}" />
+
+					{% endfor %}
+
+					<h3>Our Blog</h3>
+
+				</a>
+
+			</div>
+
+		</div>
+
+	</section>
+
+{% endblock %}
